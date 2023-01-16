@@ -1,0 +1,12 @@
+#* java -ea jump61.Main
+# Check that the program can play against itself without blowing up from a
+# set-up position.
+size 2
+seed 2116213
+manual blue
+1 1
+auto blue
+dump
+auto red
+#*move/win
+quit

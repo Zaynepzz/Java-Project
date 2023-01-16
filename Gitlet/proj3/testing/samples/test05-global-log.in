@@ -1,0 +1,34 @@
+# Set up a simple chain of commits and check their global-log.
+> init
+<<<
++ f.txt f.txt
+> add f.txt
+<<<
++ g.txt g.txt
+> add g.txt
+<<<
+> commit "added two files"
+<<<
+> rm f.txt
+<<<
+> commit "Removed f.txt"
+<<<
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> global-log
+===
+${HEADER}
+${DATE}
+Removed f.txt
+
+===
+${HEADER}
+${DATE}
+added two files
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
